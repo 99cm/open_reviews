@@ -1,5 +1,6 @@
 //= require jquery.rating
-//= require spree/backend
+//= require spree/frontend
+//= require spree/frontend/open_auth
 
 // Navigating to a page with ratings via TurboLinks shows the radio buttons
 $(document).on('page:load', function () {

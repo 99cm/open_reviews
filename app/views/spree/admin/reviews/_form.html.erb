@@ -5,6 +5,11 @@
   <%= f.text_field :name, class: 'form-control' %>
 </div>
 
+<%= f.field_container :email do %>
+  <%= f.label :email %><br />
+  <%= mail_to @review.email %>
+<% end %>
+
 <div class="form-group">
   <%= f.label :title %>
   <%= f.text_field :title, class: 'form-control' %>

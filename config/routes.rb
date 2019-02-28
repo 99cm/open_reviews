@@ -1,4 +1,4 @@
-Spree::Core::Engine.add_routes do
+Spree::Core::Engine.routes.draw do
   namespace :admin do
     resources :reviews, only: [:index, :destroy, :edit, :update] do
       member do
@@ -13,5 +13,19 @@ Spree::Core::Engine.add_routes do
     resources :reviews, only: [:index, :new, :create] do
     end
   end
-  post '/reviews/:review_id/feedback(.:format)' => 'feedback_reviews#create', as: :feedback_reviews
+  post '/reviews/:review_id/feedback(.:format)', to: 'feedback_reviews#create', as: :feedback_reviews
+
+  if self.api_available?
+    namespace :api, defaults: { format: 'json'} do
+      resources :reviews, only: [:show, :create, :update, :destroy]
+
+      resources :products do
+        resources :reviews, only: [:index]
+      end
+
+      resources :users do
+        resources :reviews, only: [:index]
+      end
+    end
+  end
 end

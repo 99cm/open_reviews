@@ -9,7 +9,7 @@ module Spree
           next unless settings.has_preference? name
           settings[name] = value
         end
-        flash[:success] = Spree.t(:successfully_updated, resource: Spree.t(:review_settings, scope: :spree_reviews))
+        flash[:success] = I18n.t('spree.successfully_updated', resource: I18n.t('spree.review_settings', scope: :spree_reviews))
         redirect_to edit_admin_review_settings_path
       end
     end

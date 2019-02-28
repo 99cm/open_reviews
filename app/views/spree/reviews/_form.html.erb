@@ -3,7 +3,7 @@
 
   <div class="form-group">
     <%= f.label :rating %>
-    <%= render 'spree/reviews/stars', stars: review.rating, edit_enabled: true %>
+    <%= render 'stars', stars: review.rating, edit_enabled: true %>
   </div>
 
   <div class="form-group">
@@ -31,6 +31,6 @@
   <% end %>
 
   <div class="form-actions">
-    <%= f.submit Spree.t(:submit_your_review), class: 'btn btn-default' %>
+    <%= f.submit I18n.t('spree.submit_your_review'), class: 'btn btn-default' %>
   </div>
 <% end %>

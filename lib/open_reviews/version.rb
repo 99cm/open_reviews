@@ -1,15 +1,15 @@
-module SpreeReviews
+module OpenReviews
   module_function
 
-  # Returns the version of the currently loaded SpreeReviews as a
+  # Returns the version of the currently loaded OpenReviews as a
   # <tt>Gem::Version</tt>.
   def version
     Gem::Version.new VERSION::STRING
   end
 
   module VERSION
-    MAJOR = 3
-    MINOR = 3
+    MAJOR = 2
+    MINOR = 2
     TINY  = 0
 
     STRING = [MAJOR, MINOR, TINY].compact.join('.')

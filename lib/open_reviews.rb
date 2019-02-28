@@ -1,8 +1,7 @@
-require 'spree_core'
-require 'spree_reviews/engine'
-require 'spree_reviews/version'
-require 'spree_extension'
-require 'coffee_script'
+require 'open_core'
+require 'open_reviews/engine'
+require 'open_reviews/version'
+require 'open_auth_devise'
 require 'sass/rails'
 
 module Spree

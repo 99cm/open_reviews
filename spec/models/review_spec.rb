@@ -73,6 +73,7 @@ RSpec.describe Spree::Review, type: :model do
 
       before do
         reset_spree_preferences
+        Spree::Reviews::Config.preference_store = Spree::Reviews::Config.default_preferences
       end
 
       it 'properly runs oldest_first queries' do
@@ -80,7 +81,6 @@ RSpec.describe Spree::Review, type: :model do
       end
 
       it 'uses oldest_first for preview' do
-        reset_spree_preferences
         expect(described_class.preview.to_a).to eq([review_1, review_3, review_2])
       end
     end
@@ -180,6 +180,14 @@ RSpec.describe Spree::Review, type: :model do
 
     it 'returns the average rating from feedback reviews' do
       expect(review.feedback_stars).to be(2)
+    end
+  end
+
+  context "#email" do
+    it "returns email from user" do
+      user = build(:user, email: "john@smith.com")
+      review = build(:review, user: user)
+      expect(review.email).to eq("john@smith.com")
     end
   end
 end

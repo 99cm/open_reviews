@@ -1,4 +1,6 @@
-feature 'Review Admin', :js do
+require 'spec_helper'
+
+RSpec.feature 'Review Admin' do
   stub_authorization!
 
   given!(:review) { create(:review) }
@@ -28,6 +30,7 @@ feature 'Review Admin', :js do
 
       expect(page).to have_text 'Editing'
       expect(page).to have_text review.title
+      expect(page).to have_css('a', text: review.email)
     end
   end
 end

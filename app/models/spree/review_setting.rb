@@ -18,8 +18,7 @@ module Spree
     # Whether to keep track of the reviewer's locale.
     preference :track_locale, :boolean, default: false
 
-    # Render checkbox for a user to approve to show their identifier
-    # (name or email) on their review.
+    # render checkbox for a user to approve to show their identifier (name or email) on their review
     preference :show_identifier, :boolean, default: false
 
     def stars
